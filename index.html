@@ -1,0 +1,231 @@
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Token Stake</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="images/mist.svg">
+    
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css" integrity="sha512-vebUliqxrVkBy3gucMhClmyQP9On/HAWQdKDXRaAlb/FKuTbxkjPKUyqVOxAcGwFDka79eTF+YXwfke1h3/wfg==" crossorigin="anonymous" />
+        
+       
+        <link rel="stylesheet" href="css/linearStyle.css" type="text/css">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css" integrity="sha512-O03ntXoVqaGUTAeAmvQ2YSzkCvclZEcPQu1eqloPaHfJ5RuNGiS4l+3duaidD801P50J28EHyonCV06CUlTSag==" crossorigin="anonymous" />
+       
+       
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/linearStyle.css">
+        <link rel="stylesheet" href="css/stylesheet.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    </head>
+  <body data-new-gr-c-s-check-loaded="14.981.0" cz-shortcut-listen="true">
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+        
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Select a token</h4>
+                </div>
+                    <div class="modal-body">
+                        <div id ="token-list" class="data-list"> </div>
+                    </div>
+                <div class="modal-footer"></div>
+            </div>
+            
+        </div>
+    </div>
+     <!-- Modal close-->
+    <div id="__nuxt">
+      <!---->
+      <div id="__layout">
+        <div id="mainPage">
+          <div class="mainContent">
+            <div class="dashboardBox">
+              <div class="header">
+                <div class="logo">
+                  <img  id ="token-logo" src="images/payaccept.png" alt="" />
+                </div>
+                <div class="websiteName"></div>
+  
+                <div class="tipBox" style="opacity:0">
+                  <img src="images/congrats.9735458.svg" class="tipIcon" />
+                  <div class="tipDesc" >
+                    <span id="notifictionMessage">User rejected the transaction.</span>
+                  </div>
+                  <img
+                    src="images/close.c76ea93.svg"
+                    alt=""
+                    class="tipClose"
+                    id="notiClose"
+                  />
+                </div>
+  
+              </div>
+              <div class="totalLina">
+                <div class="totalData">
+                  <div class="totalPool">
+                    <span class="num" id="totalStakeAmount">0</span>
+                    <span class="label">Total Pool Size</span>
+                  </div>
+                  <div class="totalReward">
+                    <div class="item">
+                      <span class="num" id="userAddress">0X000...000</span>
+                      <span class="label">Wallet</span>
+                    </div>
+                    <div class="item">
+                      <span class="num" id="apy_id">0</span>
+                      <span class="label">APY</span>
+                    </div>
+                    <div class="item">
+                      <span class="num" id="accrued_rewards">0</span>
+                      <span class="label">Accrued Rewards</span>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="dataArea">
+               
+                <div class="item">
+                  <span class="label">Available</span
+                  ><span class="data"
+                    ><span class="num" id="userBalance">0</span>
+                    <span  id ="auint" class="unit">PAYT</span></span
+                  >
+                </div>
+                <div class="item">
+                  <span class="label">Staking</span
+                  ><span class="data"
+                    ><span class="num" id="userStake">0</span>
+                    <span  id ="suint" class="unit">PAYT</span></span
+                  >
+                </div>
+                <div class="item">
+                  <span class="label">Total</span
+                  ><span class="data"
+                    ><span class="num" id="userTotal">0</span>
+                    <span id ="tuint" class="unit">PAYT</span></span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="bedienfeldBox">
+              <div class="stake">
+                <div class="floatTitle">
+                  <span class="openTitle" style="display: none"
+                    >I want to stake</span
+                  >
+                  <span class="closeTitle" >STAKE</span>
+
+                </div>
+                <div class="floatEditor" style="display: none">
+                    
+                  <div
+                    class="input ivu-input-number ivu-input-number-default empty"
+                  >
+                    <div class="ivu-input-number-handler-wrap">
+                      <a
+                        class="ivu-input-number-handler ivu-input-number-handler-up ivu-input-number-handler-up-disabled"
+                        ><span
+                          class="ivu-input-number-handler-up-inner ivu-icon ivu-icon-ios-arrow-up"
+                        ></span
+                      ></a>
+                      <a
+                        class="ivu-input-number-handler ivu-input-number-handler-down ivu-input-number-handler-down-disabled"
+                        ><span
+                          class="ivu-input-number-handler-down-inner ivu-icon ivu-icon-ios-arrow-down"
+                        ></span
+                      ></a>
+                    </div>
+                    <div class="ivu-input-number-input-wrap">
+                      <input
+                        autocomplete="off"
+                        spellcheck="false"
+                        placeholder="0"
+                        class="ivu-input-number-input"
+                        id="stakeAmount"
+                      />
+                    </div>
+                  </div>
+                 
+                  
+                  
+  
+                  <div class="maxButton max" onclick="maxStakeAmount();"><span class="label">MAX</span></div>
+  
+                  <div id="stakeButtonDiv">
+                    <div class="maxButton max button" onclick="approve();"><span class="label">Approve</span></div>
+                  </div>
+                  
+                </div>
+                <div class="floatClose" style="display: none" id="stakeClose">
+                  <img
+                  src="images/close.c76ea93.svg"
+                  alt=""
+                  class="tipClose"
+                  />
+                </div>
+                <!---->
+              </div>
+              <div class="unstake">
+                <div class="floatTitle">
+                  <span class="openTitle" style="display: none"
+                    >I want to unstake</span
+                  >
+                  <span class="closeTitle">UNSTAKE</span>
+                </div>
+                <div class="floatEditor" style="display: none">
+                
+                  <div id="unStakeButtonDiv">
+                    <div class="maxButton max button" onclick="unstake();"><span class="label">UnStake</span></div>
+                  </div>
+                </div>
+                <div class="floatClose" style="display: none" id="unStakeClose">
+                  <img
+                  src="images/close.c76ea93.svg"
+                  alt=""
+                  class="tipClose"
+                  />
+                </div>
+                <!---->
+              </div>
+              <div
+                class="ivu-spin ivu-spin-default ivu-spin-fix"
+                style="display: none"
+              >
+                <div class="ivu-spin-main">
+                  <span class="ivu-spin-dot"></span>
+                  <div class="ivu-spin-text"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+          <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.min.js"></script>
+          <script type="text/javascript" src="js/Staking.js"></script>
+          <script type="text/javascript" src="js/Stakingabi.js"></script>
+          <script type="text/javascript" src="js/Tokenabi.js"></script>
+
+          <script>
+             var img = document.getElementById("token-logo");
+             img.onclick= function(){
+                $("#myModal").modal('show');
+            }
+         </script>
+          
+      </body>
+  </body>
+  </html>

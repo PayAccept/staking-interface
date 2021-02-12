@@ -1,0 +1,32 @@
+{
+  "name": "staking",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "ganache-cli": "^6.9.1",
+    "helpers": "0.0.6",
+    "html-pdf": "^2.2.0",
+    "moment": "^2.24.0",
+    "mongoose": "^5.10.1",
+    "request-promise-native": "^1.0.9",
+    "truffle-assertions": "^0.9.2",
+    "truffle-hdwallet-provider": "^1.0.17",
+    "web3": "^1.2.11"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-bignumber": "^3.0.0",
+    "lite-server": "^2.5.4",
+    "nodemon": "^2.0.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "lite-server",
+    "start": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

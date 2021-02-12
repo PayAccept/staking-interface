@@ -1,0 +1,654 @@
+*, :after, :before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('../fonts/Gilroy-Regular.woff2') format('woff2'),
+        url('../fonts/Gilroy-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+body::-webkit-scrollbar, div::-webkit-scrollbar, html::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    -webkit-transition: all 5s ease;
+    transition: all 5s ease
+}
+
+body::-webkit-scrollbar-track, div::-webkit-scrollbar-track, html::-webkit-scrollbar-track {
+    background: #efefef;
+    border-radius: 2px
+}
+
+body::-webkit-scrollbar-thumb, div::-webkit-scrollbar-thumb, html::-webkit-scrollbar-thumb {
+    background: #bfbfbf;
+    border-radius: 10px
+}
+
+body::-webkit-scrollbar-thumb:hover, div::-webkit-scrollbar-thumb:hover, html::-webkit-scrollbar-thumb:hover {
+    background: #afafaf
+}
+
+body::-webkit-scrollbar-corner, div::-webkit-scrollbar-corner, html::-webkit-scrollbar-corner {
+    background: #efefef
+}
+
+#mainPage {
+    font-family: Gilroy;
+    display: flex;
+    justify-content: center;
+    height: 100vh
+}
+
+#mainPage .mainContent {
+    width: 100%;
+    min-height: 925px;
+    min-width: 90px;
+    max-width: 1440px;
+    height: 100vh;
+    display: flex
+}
+
+#mainPage .mainContent .bedienfeldBox, #mainPage .mainContent .dashboardBox {
+    flex: 1;
+    height: 100%
+}
+
+#mainPage .mainContent .dashboardBox {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    position: relative
+}
+
+#mainPage .mainContent .dashboardBox .dataArea, #mainPage .mainContent .dashboardBox .header, #mainPage .mainContent .dashboardBox .totalLina {
+    padding: 0 120px
+}
+
+#mainPage .mainContent .dashboardBox .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 65.6px
+}
+
+#mainPage .mainContent .dashboardBox .header .logo img {
+    width: 90px;
+    height: auto
+}
+
+#mainPage .mainContent .dashboardBox .header .websiteName {
+    margin: 20px 0 100px;
+    color: #5a575c;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 1.5;
+    font-family: Gilroy
+}
+
+#mainPage .mainContent .dashboardBox .header .tipBox {
+    background: rgba(27, 5, 161, .05);
+    display: flex;
+    align-items: center;
+    padding: 15px 16px;
+    border-radius: 16px;
+    width: 100%;
+    transition: opacity .2s linear
+}
+
+#mainPage .mainContent .dashboardBox .header .tipBox .tipIcon {
+    margin-right: 16px;
+    width: 24px;
+    height: 24px
+}
+
+#mainPage .mainContent .dashboardBox .header .tipBox .tipDesc {
+    color: #1b05a1
+}
+
+#mainPage .mainContent .dashboardBox .header .tipBox .tipDesc .num {
+    font-size: 16px;
+    font-weight: 700
+}
+
+#mainPage .mainContent .dashboardBox .header .tipBox .tipClose {
+    cursor: pointer;
+    width: 10px;
+    height: 10px;
+    margin-left: auto
+}
+
+#mainPage .mainContent .dashboardBox .totalLina {
+    width: 100%;
+    margin: 20px 0 118px
+}
+
+#mainPage .mainContent .dashboardBox .totalLina .totalData {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px 0 #deddde;
+    border: 1px solid #deddde;
+    background-color: #fff
+}
+
+#mainPage .mainContent .dashboardBox .totalLina .totalData .totalPool {
+    display: flex;
+    flex-direction: column;
+    padding: 46px 25px 44px
+}
+
+#mainPage .mainContent .dashboardBox .totalLina .totalData .totalPool .num {
+    font-family: Gilroy;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.14;
+    text-align: center;
+    color: #1b05a1;
+    word-break: break-all
+}
+
+#mainPage .mainContent .dashboardBox .totalLina .totalData .totalPool .label {
+    font-family: Gilroy;
+    font-size: 14px;
+    line-height: 1.29;
+    text-align: center;
+    color: #5a575c
+}
+
+#mainPage .mainContent .dashboardBox .totalLina .totalData .totalReward {
+    display: flex;
+    padding: 0 25px 46px
+}
+
+#mainPage .mainContent .dashboardBox .totalLina .totalData .totalReward .item {
+    display: flex;
+    flex-direction: column;
+    width: 50%
+}
+
+#mainPage .mainContent .dashboardBox .totalLina .totalData .totalReward .item .num {
+    font-family: Gilroy;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.33;
+    text-align: center;
+    color: #c6c4c7;
+    word-break: break-all
+}
+
+#mainPage .mainContent .dashboardBox .totalLina .totalData .totalReward .item .label {
+    font-family: Gilroy;
+    font-size: 14px;
+    line-height: 1.29;
+    text-align: center;
+    color: #5a575c
+}
+
+#mainPage .mainContent .dashboardBox .dataArea {
+    width: 100%
+}
+
+#mainPage .mainContent .dashboardBox .dataArea .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px
+}
+
+#mainPage .mainContent .dashboardBox .dataArea .item:last-child {
+    margin-bottom: 0
+}
+
+#mainPage .mainContent .dashboardBox .dataArea .item .label {
+    color: #5a575c;
+    font-size: 24px
+}
+
+#mainPage .mainContent .dashboardBox .dataArea .item .data {
+    display: flex;
+    align-items: center
+}
+
+#mainPage .mainContent .dashboardBox .dataArea .item .data .num {
+    font-size: 24px;
+    line-height: 1.33;
+    margin: 0 16px
+}
+
+#mainPage .mainContent .dashboardBox .dataArea .item .data .unit {
+    font-size: 24px
+}
+
+#mainPage .mainContent .dashboardBox .dataArea .item:last-child {
+    font-weight: 700;
+    color: #1b05a1
+}
+
+#mainPage .mainContent .dashboardBox .dataArea .item:last-child .label {
+    color: #1b05a1
+}
+
+#mainPage .mainContent .dashboardBox .dataArea .item:last-child .data .num {
+    font-weight: 700
+}
+
+#mainPage .mainContent .bedienfeldBox {
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+    transition: height .2s linear;
+    position: relative
+}
+
+#mainPage .mainContent .bedienfeldBox .stake {
+    background-color: #1b05a1
+}
+
+#mainPage .mainContent .bedienfeldBox .stake:hover:not(.open) {
+    background-color: #11026d
+}
+
+#mainPage .mainContent .bedienfeldBox .unstake {
+    background-color: #1e00d3
+}
+
+#mainPage .mainContent .bedienfeldBox .unstake:hover:not(.open) {
+    background-color: #11026d
+}
+
+#mainPage .mainContent .bedienfeldBox .stake, #mainPage .mainContent .bedienfeldBox .unstake {
+    width: 50%;
+    height: 100%;
+    cursor: pointer;
+    transition: all .2s linear;
+    position: relative;
+    overflow: hidden
+}
+
+#mainPage .mainContent .bedienfeldBox .stake.open, #mainPage .mainContent .bedienfeldBox .unstake.open {
+    width: 100%;
+    cursor: auto
+}
+
+#mainPage .mainContent .bedienfeldBox .stake.open .floatTitle, #mainPage .mainContent .bedienfeldBox .unstake.open .floatTitle {
+    top: 286px
+}
+
+#mainPage .mainContent .bedienfeldBox .stake.close, #mainPage .mainContent .bedienfeldBox .unstake.close {
+    width: 0;
+    overflow: hidden
+}
+
+#mainPage .mainContent .bedienfeldBox .stake .floatTitle, #mainPage .mainContent .bedienfeldBox .unstake .floatTitle {
+    transition: all .2s linear;
+    position: absolute;
+    color: #fff;
+    font-size: 32px;
+    font-weight: 700;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap
+}
+
+#mainPage .mainContent .bedienfeldBox .stake .floatTitle .openTitle, #mainPage .mainContent .bedienfeldBox .unstake .floatTitle .openTitle {
+    display: none;
+    letter-spacing: -12px
+}
+
+#mainPage .mainContent .bedienfeldBox .stake .floatClose, #mainPage .mainContent .bedienfeldBox .unstake .floatClose {
+    opacity: 0;
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    cursor: pointer
+}
+
+#mainPage .mainContent .bedienfeldBox .stake .floatClose i, #mainPage .mainContent .bedienfeldBox .unstake .floatClose i {
+    opacity: .5;
+    font-size: 42px;
+    color: #fff
+}
+
+#mainPage .mainContent .bedienfeldBox .stake .floatEditor, #mainPage .mainContent .bedienfeldBox .unstake .floatEditor {
+    opacity: 0;
+    width: 100%;
+    padding: 0 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column
+}
+
+#mainPage .mainContent .bedienfeldBox .stake .floatEditor .input, #mainPage .mainContent .bedienfeldBox .unstake .floatEditor .input {
+    width: 100%;
+    height: unset;
+    background-color: unset;
+    border: none!important;
+    box-shadow: none
+}
+
+#mainPage .mainContent .bedienfeldBox .stake .floatEditor .input .ivu-input-number-handler-wrap, #mainPage .mainContent .bedienfeldBox .unstake .floatEditor .input .ivu-input-number-handler-wrap {
+    display: none
+}
+
+#mainPage .mainContent .bedienfeldBox .stake .floatEditor .input .ivu-input-number-input-wrap, #mainPage .mainContent .bedienfeldBox .unstake .floatEditor .input .ivu-input-number-input-wrap {
+    height: unset
+}
+
+#mainPage .mainContent .bedienfeldBox .stake .floatEditor .input .ivu-input-number-input-wrap .ivu-input-number-input, #mainPage .mainContent .bedienfeldBox .unstake .floatEditor .input .ivu-input-number-input-wrap .ivu-input-number-input {
+    font-size: 160px;
+    line-height: 160px;
+    height: unset;
+    font-weight: 700;
+    color: #fff;
+    background: unset;
+    text-align: center
+}
+
+#mainPage .mainContent .bedienfeldBox .stake .floatEditor .input.empty .ivu-input-number-input-wrap input, #mainPage .mainContent .bedienfeldBox .unstake .floatEditor .input.empty .ivu-input-number-input-wrap input {
+    opacity: .3
+}
+
+#mainPage .mainContent .bedienfeldBox .stake .floatEditor .label, #mainPage .mainContent .bedienfeldBox .unstake .floatEditor .label {
+    text-align: center;
+    color: #fff;
+    font-size: 24px
+}
+
+#mainPage .mainContent .bedienfeldBox .stake .floatEditor .maxButton, #mainPage .mainContent .bedienfeldBox .unstake .floatEditor .maxButton {
+    cursor: pointer;
+    margin: 0 auto;
+    width: 62px;
+    height: 32px;
+    border-radius: 4px;
+    background-color: #11026d;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+#mainPage .mainContent .bedienfeldBox .stake .floatEditor .maxButton .label, #mainPage .mainContent .bedienfeldBox .unstake .floatEditor .maxButton .label {
+    font-family: Gilroy;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.33;
+    letter-spacing: 1.5px;
+    color: #fff
+}
+
+#mainPage .mainContent .bedienfeldBox .stake .floatEditor .maxButton.max, #mainPage .mainContent .bedienfeldBox .unstake .floatEditor .maxButton.max {
+    background-color: #fff
+}
+
+#mainPage .mainContent .bedienfeldBox .stake .floatEditor .maxButton.max .label, #mainPage .mainContent .bedienfeldBox .unstake .floatEditor .maxButton.max .label {
+    color: #1b05a1
+}
+
+#mainPage .mainContent .bedienfeldBox .stake .floatBottomBtn, #mainPage .mainContent .bedienfeldBox .unstake .floatBottomBtn {
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    font-size: 32px;
+    font-weight: 700;
+    height: 128px;
+    line-height: 128px;
+    width: 100%;
+    cursor: not-allowed;
+    text-align: center;
+    transition: background-color .2s linear
+}
+
+#mainPage .mainContent .bedienfeldBox .stake .floatBottomBtn.can, #mainPage .mainContent .bedienfeldBox .unstake .floatBottomBtn.can {
+    cursor: pointer;
+    background-color: #11026d
+}
+
+@media screen and (max-width:414px) {
+    #mainPage, #mainPage .mainContent {
+        height: 100vh;
+        min-height: unset
+    }
+    #mainPage .mainContent {
+        min-width: 375px;
+        display: block;
+        position: relative
+    }
+    #mainPage .mainContent .dashboardBox {
+        padding: 0 24px
+    }
+    #mainPage .mainContent .dashboardBox .header {
+        width: 100%;
+        padding: 32px 16px;
+        margin-top: 0
+    }
+    #mainPage .mainContent .dashboardBox .header .logo {
+        height: 32px
+    }
+    #mainPage .mainContent .dashboardBox .header .logo img {
+        width: 32px
+    }
+    #mainPage .mainContent .dashboardBox .header .websiteName {
+        margin: 18px 0 24px;
+        font-size: 12px
+    }
+    #mainPage .mainContent .dashboardBox .header .tipBox {
+        padding: 12px;
+        border-radius: 8px
+    }
+    #mainPage .mainContent .dashboardBox .header .tipBox .tipIcon {
+        margin-right: 8px;
+        width: 17px
+    }
+    #mainPage .mainContent .dashboardBox .header .tipBox .tipDesc .num {
+        font-size: 12px
+    }
+    #mainPage .mainContent .dashboardBox .header .tipBox .tipClose {
+        width: 10px;
+        height: 10px;
+        margin-left: auto
+    }
+    #mainPage .mainContent .dashboardBox .totalLina {
+        margin: unset;
+        padding: 0 16px
+    }
+    #mainPage .mainContent .dashboardBox .totalLina .totalData {
+        margin: unset;
+        padding: 24px 40px;
+        border: unset
+    }
+    #mainPage .mainContent .dashboardBox .totalLina .totalData .totalPool {
+        padding: 0 0 16px
+    }
+    #mainPage .mainContent .dashboardBox .totalLina .totalData .totalPool .num {
+        font-size: 32px
+    }
+    #mainPage .mainContent .dashboardBox .totalLina .totalData .totalPool .label {
+        font-size: 12px
+    }
+    #mainPage .mainContent .dashboardBox .totalLina .totalData .totalReward {
+        padding: unset
+    }
+    #mainPage .mainContent .dashboardBox .totalLina .totalData .totalReward .item .num {
+        font-size: 16px;
+        font-weight: 700
+    }
+    #mainPage .mainContent .dashboardBox .totalLina .totalData .totalReward .item .label {
+        font-size: 12px
+    }
+    #mainPage .mainContent .dashboardBox .dataArea {
+        padding: 24px 16px 0
+    }
+    #mainPage .mainContent .dashboardBox .dataArea .item {
+        margin-bottom: 10px
+    }
+    #mainPage .mainContent .dashboardBox .dataArea .item:last-child {
+        margin-bottom: 0
+    }
+    #mainPage .mainContent .dashboardBox .dataArea .item .label {
+        font-size: 16px
+    }
+    #mainPage .mainContent .dashboardBox .dataArea .item .data .num {
+        font-size: 16px;
+        margin: 0 8px;
+        line-height: 16px
+    }
+    #mainPage .mainContent .dashboardBox .dataArea .item .data .unit {
+        font-size: 16px
+    }
+    #mainPage .mainContent .dashboardBox .dataArea .item:last-child {
+        font-weight: 700
+    }
+    #mainPage .mainContent .bedienfeldBox {
+        display: flex;
+        position: fixed;
+        flex-direction: row-reverse;
+        height: unset;
+        float: unset;
+        width: 100%;
+        bottom: 0
+    }
+    #mainPage .mainContent .bedienfeldBox .stake {
+        background-color: #1b05a1;
+        top: 0
+    }
+    #mainPage .mainContent .bedienfeldBox .stake:hover:not(.open) {
+        background-color: #11026d
+    }
+    #mainPage .mainContent .bedienfeldBox .unstake {
+        bottom: 0;
+        background-color: #1e00d3
+    }
+    #mainPage .mainContent .bedienfeldBox .unstake:hover:not(.open) {
+        background-color: #11026d
+    }
+    #mainPage .mainContent .bedienfeldBox .stake, #mainPage .mainContent .bedienfeldBox .unstake {
+        width: 100%;
+        height: 120px
+    }
+    #mainPage .mainContent .bedienfeldBox .stake.open, #mainPage .mainContent .bedienfeldBox .unstake.open {
+        width: 100%!important
+    }
+    #mainPage .mainContent .bedienfeldBox .stake.open .floatTitle, #mainPage .mainContent .bedienfeldBox .unstake.open .floatTitle {
+        top: 134px
+    }
+    #mainPage .mainContent .bedienfeldBox .stake.open .floatTitle .openTitle, #mainPage .mainContent .bedienfeldBox .unstake.open .floatTitle .openTitle {
+        font-size: 24px;
+        letter-spacing: 2px
+    }
+    #mainPage .mainContent .bedienfeldBox .stake.close, #mainPage .mainContent .bedienfeldBox .unstake.close {
+        display: none
+    }
+    #mainPage .mainContent .bedienfeldBox .stake .floatTitle, #mainPage .mainContent .bedienfeldBox .unstake .floatTitle {
+        font-size: 16px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%)
+    }
+    #mainPage .mainContent .bedienfeldBox .stake .floatTitle .openTitle, #mainPage .mainContent .bedienfeldBox .unstake .floatTitle .openTitle {
+        letter-spacing: 2px
+    }
+    #mainPage .mainContent .bedienfeldBox .stake .floatClose, #mainPage .mainContent .bedienfeldBox .unstake .floatClose {
+        top: 24px;
+        right: 24px
+    }
+    #mainPage .mainContent .bedienfeldBox .stake .floatEditor, #mainPage .mainContent .bedienfeldBox .unstake .floatEditor {
+        opacity: 0;
+        width: 100%;
+        padding: 0 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%)
+    }
+    #mainPage .mainContent .bedienfeldBox .stake .floatEditor .input, #mainPage .mainContent .bedienfeldBox .unstake .floatEditor .input {
+        width: 100%;
+        height: unset;
+        background-color: unset
+    }
+    #mainPage .mainContent .bedienfeldBox .stake .floatEditor .input .ivu-input-number-input-wrap, #mainPage .mainContent .bedienfeldBox .unstake .floatEditor .input .ivu-input-number-input-wrap {
+        height: unset
+    }
+    #mainPage .mainContent .bedienfeldBox .stake .floatEditor .input .ivu-input-number-input-wrap .ivu-input-number-input, #mainPage .mainContent .bedienfeldBox .unstake .floatEditor .input .ivu-input-number-input-wrap .ivu-input-number-input {
+        font-size: 80px;
+        line-height: 88px;
+        height: unset
+    }
+    #mainPage .mainContent .bedienfeldBox .stake .floatEditor .label, #mainPage .mainContent .bedienfeldBox .unstake .floatEditor .label {
+        font-size: 16px
+    }
+    #mainPage .mainContent .bedienfeldBox .stake .floatEditor .maxButton, #mainPage .mainContent .bedienfeldBox .unstake .floatEditor .maxButton {
+        margin-top: 24px
+    }
+    #mainPage .mainContent .bedienfeldBox .stake .floatBottomBtn, #mainPage .mainContent .bedienfeldBox .unstake .floatBottomBtn {
+        position: fixed;
+        font-size: 16px;
+        height: 120px;
+        line-height: 120px;
+        letter-spacing: 2px
+    }
+    #mainPage .mainContent .bedienfeldBox.boxOpen {
+        height: 100%
+    }
+    #mainPage .mainContent .bedienfeldBox.boxOpen .stake.open, #mainPage .mainContent .bedienfeldBox.boxOpen .unstake.open {
+        height: 100%;
+        z-index: 1
+    }
+    #mainPage .mainContent .bedienfeldBox.boxOpen .stake.close, #mainPage .mainContent .bedienfeldBox.boxOpen .unstake.close {
+        z-index: 0;
+        bottom: 0;
+        display: none
+    }
+}
+
+#mainPage .ivu-input-number-input{
+    width: 99% !important;
+    outline:0;
+    border:0;
+    border-radius:4px;
+    transition:all .2s linear;
+}
+
+#mainPage .ivu-input-number-input:focus{
+    outline:0;
+    border:0;
+}
+#mainPage .button{
+    height: 50px !important;
+    width: 80% !important;
+    margin-top: 14px !important;
+}
+#stakeButtonDiv , #unStakeButtonDiv{
+    width: 100%;
+}
+#mainPage .ivu-input-number-input::placeholder{
+    color: #fff;
+}
+
+.data-input{
+    border-radius: 23px;
+    margin: auto;
+    padding: inherit;
+    width: -webkit-fill-available;
+    border-color: black;
+}
+
+.data-list{
+    text-align: -webkit-left;
+    
+}
