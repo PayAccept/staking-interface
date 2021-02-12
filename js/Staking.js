@@ -6,7 +6,7 @@ window.addEventListener('load', async () => {
                   // ask user for permission
                   await window.ethereum.enable();
                   callCheck();
-                 
+
                 //   checkAccount();
                   // user approved permission
               } catch (error) {
@@ -22,19 +22,19 @@ window.addEventListener('load', async () => {
       }
     // No web3 provider
       else {
-        $("#notifictionMessage").html("Metamask is not Installed ")
+        $("#notifictionMessage").html("Metamask is not Installed")
         $(".tipBox").css("opacity","1");
     }
 });
 
 
-const stakeAddress = "0xfd9A3f81D5FfCF6E29b6C09A999B5CF80F287E49";
+const stakeAddress = "0xa090C2A3A5Ab0A5196E35174Fd1B40C13BD580c7";
 
-const tokenAddress = ["0x0daaf67afe0ee5c868202da7d8a722fcd9981a37","0xd705b7197c264d733b0c114c84e000da67858670"];
+const tokenAddress = ["0x8EF47555856f6Ce2E0cd7C36AeF4FAb317d2e2E2","0x166200cd8db2474ab4aa323261fa5a7e97a98dd5"];
 
 var userStakeAmount = 0;
-const networkId = 3;
-const netWorkUrl = "https://ropsten.etherscan.io/tx/"
+const networkId = 1;
+const netWorkUrl = "https://etherscan.io/tx/"
 
 let userStake = 0;
 let userBalance = 0;
@@ -53,7 +53,7 @@ async function callCheck(){
     window.id = id;
     window.walletAddress = address[0];
     if(id !== networkId){
-        $("#notifictionMessage").html("Please Select Ropsten Network")
+        $("#notifictionMessage").html("Please Select Mainnet Network")
         $(".tipBox").css("opacity","1");
         return false;
     }
@@ -61,10 +61,10 @@ async function callCheck(){
     for(var i =0;i<tokenAddress.length;i++)
     {
         tokenInstance[i] =await new window.web3.eth.Contract(tokenabi,tokenAddress[i]);
-        
+
     }
      tokenList();
-   
+
     let account = address[0].substr(0,5)+"..."+ address[0].substr(-4)
     $("#userAddress").html(account.toLowerCase());
     $("#myModal").modal('show');
@@ -72,7 +72,7 @@ async function callCheck(){
 
 async function balanceChecker(_tokenaddr,index){
     let address = window.walletAddress;
-    
+
     userStake = window.web3.utils.fromWei(await  window.StakeInstance.methods.stakeBalance(_tokenaddr,address).call());
     userBalance = window.web3.utils.fromWei(await tokenInstance[index].methods.balanceOf(address).call());
     userApporoved = window.web3.utils.fromWei(await tokenInstance[index].methods.allowance(address,stakeAddress).call());
@@ -81,24 +81,23 @@ async function balanceChecker(_tokenaddr,index){
     $("#userStake").html(Number(userStake).toFixed(2));
     $("#userTotal").html((Number(userBalance)+Number(userStake)).toFixed(2));
     $("#totalStakeAmount").html(Number(totalStakeAmount).toFixed(2));
-   
+
     calcUserBalance();
 }
 
 async function tokenList(){
 
     $.getJSON("./token_logo.json", async function (data){
-       
 
         let tokenLength = await window.StakeInstance.methods.availabletokens().call();
         let tokenSymbol ;
-       
+
         var tokenDiv = document.getElementById('token-list');
-        
+
        for(var i = 0;i<tokenLength;i++)
        {
         tokens= await window.StakeInstance.methods.tokens(i).call();
-            
+
                 tokenSymbol = await tokenInstance[i].methods.symbol().call();
                 var tokensym = document.createElement('div');
                 var linebreak =document.createElement('br')
@@ -120,7 +119,7 @@ async function tokenList(){
  }
 
   function tokenToBeStaked(id){
-     
+
      var symbol=document.getElementById(id).innerHTML;
      var index = id.substr(-1);
      var stakeTokenAddress = tokenAddress[index];
@@ -130,19 +129,19 @@ async function tokenList(){
         }
     balanceChecker(stakeTokenAddress,userStakedTokenIndex);
     $('#myModal').modal('hide');
-   
+
             $.getJSON("./token_logo.json", function (data){
                         var tokendata=[];
                         $.each(data,function(index,value){
                         tokendata.push(value);
-                        
+
                         });
-        
+
                     for(var i= 0;i < tokendata.length; i++)
                     {
                         if(index == tokendata[i].index)
                         {
-                            var img = tokendata[i].logo; 
+                            var img = tokendata[i].logo;
                             document.getElementById("token-logo").src=img;
                             document.getElementById("auint").innerHTML= tokendata[i].name;
                             document.getElementById("suint").innerHTML= tokendata[i].name;
@@ -175,7 +174,7 @@ async function approve(){
       return false;
     }
     a = window.web3.utils.toWei(a);
-   
+
     tokenInstance[userStakedTokenIndex].methods.approve(stakeAddress,a).send({from: address,value: 0,})
        .on('transactionHash', (hash) => {
        showLoader("Approving Tokens")})
@@ -185,7 +184,7 @@ async function approve(){
         $(".tipBox").css("opacity","1");
         $("#stakeAmount").attr("disabled","true");
         $("#stakeButtonDiv").html("<div class='maxButton max button' onclick='stake();'><span class='label'>Stake</span></div>")
-        
+
     }).on("error", (error) => {
         hideLoader()
         if (error.message.includes("User denied transaction signature")) {
@@ -209,7 +208,7 @@ async function stake(){
         showLoader("Staking Tokens")
     })
     .on('receipt', (receipt) => {
-      
+
                 $("#stakeAmount").attr("disabled","false");
                 $("#stakeAmount").val("0");
                 setTimeout(()=>{
@@ -218,7 +217,7 @@ async function stake(){
                     hideLoader();
                     balanceChecker(userStakedTokenAddess,userStakedTokenIndex);
                     closeStake();
-                },2000) 
+                },2000)
     }).on("error", (error) => {
         hideLoader();
         if (error.message.includes("User denied transaction signature")) {
@@ -229,7 +228,7 @@ async function stake(){
             $(".tipBox").css("opacity","1");
         }
     })
-  
+
 }
 async function unstake(){
     let address = window.walletAddress;
@@ -298,7 +297,7 @@ function closeUnStake(){
 
 
 $(document).ready(function(){
-    
+
     $(".stake").click(function(){
         if($(event.target).hasClass("tipClose")){
           return ;
@@ -380,7 +379,7 @@ $(document).ready(function(){
 
         if(Number($(this).val()) > userBalance){
             $("#stakeAmount").val(userBalance);
-            
+
         }
         if(Number($(this).val()) > MAX_AMOUNT){
            $("stakeAmount").val(MAX_AMOUNT);
