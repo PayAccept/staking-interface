@@ -45,7 +45,7 @@ let tokens = '';
 let tokenInstance=[];
 let userStakedTokenIndex = 0;
 let userStakedTokenAddess = '';
-let MAX_AMOUNT = 500;
+let MAX_AMOUNT = 5000;
 
 async function callCheck(){
     let address = await window.web3.eth.getAccounts();
